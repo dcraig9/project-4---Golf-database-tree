@@ -8,10 +8,11 @@
 ********************************************************************************************/
 
 
-class Golfer {
+class Golfer implements Comparable<Object>
+{
 
 
-   private String lastname;
+   private String lastName;
    private int numberOfRounds;
    private double averageScore;
    private int handicap;
@@ -39,13 +40,12 @@ class Golfer {
    * @postcondition 
    *    
    **/
-   public Golfer(String name, int rounds, double average, int handicap)
+   public Golfer(String name, int rounds, double avg, int cap)
    {
-   
-   
-   
-   
-   
+      lastName = name;
+      numberOfRounds = rounds;
+      averageScore = avg;
+      handicap = cap;  
    }
    
    /**
@@ -54,9 +54,9 @@ class Golfer {
    * @return
    *   
    **/
-   public int getName()
+   public String getName()
    {
-   
+      return lastName;
    }
    
    /**
@@ -66,9 +66,9 @@ class Golfer {
    *   
    *   
    **/   
-   public void setName(string name)
+   public void setName(String name)
    {
-   
+      lastName = name;
    }
    
    /**
@@ -79,7 +79,7 @@ class Golfer {
    **/   
    public int getRounds()
    {
-   
+      return numberOfRounds;
    }
    
    /**
@@ -91,7 +91,7 @@ class Golfer {
    **/   
    public void setRounds(int rounds)
    {
-   
+      numberOfRounds = rounds;
    }
    
    /**
@@ -102,7 +102,7 @@ class Golfer {
    **/   
    public double getAverage()
    {
-   
+      return averageScore;
    }
    
    /**
@@ -114,7 +114,7 @@ class Golfer {
    **/   
    public void setAverage(double average)
    {
-   
+      averageScore = average;
    }
    
    /**
@@ -124,9 +124,9 @@ class Golfer {
    *   
    *   
    **/   
-   public int setHandicap(int num)
+   public void setHandicap(int num)
    {
-   
+      handicap = num;
    }
    /**
    * Accessor method    
@@ -134,25 +134,41 @@ class Golfer {
    * @return
    *   
    **/   
-   public void getHandicap()
+   public int getHandicap()
    {
-   
+      return handicap;
    }
-   
+   /**
+   *     
+   * @param 
+   * 
+   *   
+   **/  
    public void addNewScore(int newScore)
    {
    
    }
-   
-   public int compareTo (Golfer test)
+   /**
+   * Compareto method    
+   * @param - 
+   * @return
+   *   
+   **/     
+   public int compareTo (Object obj)
    {
    
       return 0;
    }
    
-   public String toString(Golfer source)
+   /**
+   *     
+   * @param - 
+   * @return
+   *   
+   **/     
+   public String toString(Object obj)
    {
-      String output;
+      String output = "";
       
       return output;
    }
