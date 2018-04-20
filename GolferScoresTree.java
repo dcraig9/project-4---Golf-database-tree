@@ -11,8 +11,38 @@ import java.util.*;
 
 class GolferScoresTree { 
 
-   public static void main(String [] args)
-   {
+   public static void main(String [] args) throws IOException {
+
+      String lastName;
+      int numRounds = 0;
+      int handicap = 0;
+      double average = 0.0;
+      
+      File text = new File ("golferinfo.txt");
+      
+      if (text.exists()) {
+         System.out.println("File exists already - we can read it");
+      }else {
+         text.createNewFile();   
+      }
+
+      Scanner read = new Scanner(text);
+      
+      // read in data, assign it to a golfer object, place object in tree?
+      while(read.hasNext()){
+         lastName = read.next();
+         numRounds = read.nextInt();
+         handicap = read.nextInt();
+         average = read.nextDouble();
+         
+         Golfer one = new Golfer(lastName, numRounds, average, handicap);
+      
+         // add this to tree bag, and clear it and repeat until all golfers are in tree.
+         
+      }
+         
+         
+   
       System.out.println(" Thank you for coming to the tournament!  Here are the things you can do with our statistics: ");
       System.out.println();
       
