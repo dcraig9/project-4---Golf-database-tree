@@ -1,0 +1,18 @@
+Some Questions about the project:
+
+1.  Is the first BTNode - root -  filled with the first Player in the golferinfo.txt file?
+	Aka the first golfer object?  
+	Checked the book - yes this is how it is done.  Need to create a way to put first one as root.
+	root = new BTNode(E element, null, null)
+	Maybe read first data then put others in loop in main program.
+	***Or more likely have TreeBag.add recognize the first one somehow?  Could check if root data == null;
+	Then add if so.
+
+2.  Are subsequent golfer objects added using the TreeBag.add(E) method?
+	Will this align them in the tree?  Is it by alphabetical of last name?
+	Comparisons will determine whether it is left or right of root.
+
+
+
+3. DisplayAsTree relies on BTNode print.  So the toString for Golfer Data is needed.
+	"data" is printed = golfer object info - should we do it as One line? Or multiple lines of info?
