@@ -8,15 +8,20 @@
 ********************************************************************************************/
 
 import java.util.*;
+import java.io.*;
 
 class GolferScoresTree { 
 
-   public static void main(String [] args) throws IOException {
+   public static void main(String [] args) throws IOException 
+   {
 
       String lastName;
+      int menu=0;
       int numRounds = 0;
       int handicap = 0;
       double average = 0.0;
+      boolean done=false;
+      
       
       File text = new File ("golferinfo.txt");
       
@@ -29,7 +34,8 @@ class GolferScoresTree {
       Scanner read = new Scanner(text);
       
       // read in data, assign it to a golfer object, place object in tree?
-      while(read.hasNext()){
+      while(read.hasNext())
+      {
          lastName = read.next();
          numRounds = read.nextInt();
          handicap = read.nextInt();
@@ -40,24 +46,63 @@ class GolferScoresTree {
          // add this to tree bag, and clear it and repeat until all golfers are in tree.
          
       }
-         
+      read.close();  //close file stream after done reading   - DC
          
    
       System.out.println(" Thank you for coming to the tournament!  Here are the things you can do with our statistics: ");
       System.out.println();
       
-      System.out.println(" 1. Display listing to screen of all golfers stats(ordered by lastname)");
-      System.out.println(" 2. Display the golfers in current tree format(Use displayAsTree )");
-      System.out.println(" 3. Find and display one individual golfers stats");
-      System.out.println(" 4. Update an individual golfers stats(by adding an additional score)");
-      System.out.println(" 5. Remove a golfer from the Database");
-      System.out.println(" 6. Add a new golfer to the Database");
-      System.out.println(" 7. Quit and update datafile");
-
+      while (!done)
+      {
+         System.out.println(" 1. Display listing to screen of all golfers stats(ordered by lastname)");
+         System.out.println(" 2. Display the golfers in current tree format(Use displayAsTree )");
+         System.out.println(" 3. Find and display one individual golfers stats");
+         System.out.println(" 4. Update an individual golfers stats(by adding an additional score)");
+         System.out.println(" 5. Remove a golfer from the Database");
+         System.out.println(" 6. Add a new golfer to the Database");
+         System.out.println(" 7. Quit and update datafile");
+      
+         menu=getMenu();
+         
+      
+      
+         switch(menu)
+         {
+            case 1:  //stuff
+                     break;
+            case 2:  //
+                     break;
+            case 3:  //
+                     break;
+            case 4:  //
+                     break;
+            case 5:  //
+                     break;
+            case 6:  //
+                     break;
+            case 7:  //stuff
+                     done=true;
+                     break; 
+         }//end switch 
+      }//end while                            
    
+   }//end main
    
-   
-   
+   public static int getMenu() // gets valid menu choice
+   {
+      int choice=0;
+      boolean valid=false;
+      while (!valid)
+      {
+         System.out.print("Choice (1-7) :");
+         choice=getInt();
+         System.out.println();
+         if (choice>0 && choice<8)
+            valid=true;
+         else
+            System.out.println("Choice must be from 1 to 7");
+      }
+      return choice;
    }
    
    public static int getInt( )           //dedicated method to get an integer as input
