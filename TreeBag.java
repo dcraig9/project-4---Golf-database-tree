@@ -43,9 +43,27 @@ public class TreeBag<E extends Comparable> implements Cloneable
    * @exception OutOfMemoryError
    *   Indicates insufficient memory a new BTNode.
    **/
+   // Complete this
    public void add(E element)
    {      
-      // Implemented by student.
+      
+      try{
+      
+         if ( root.data == null )
+            root = element;
+      
+         else {
+            if ( root.compare(element) > 0 || root.compare(element) == 0 )
+               setRight(element);
+            else if ( root.compare(element) < 0 )   
+               setLeft(element);
+            
+         }      
+      } 
+      catch (OutOfMemoryError E){
+         System.out.println("System is Out of Memory, Exiting...");
+      }       
+      
    }
 
    /**
@@ -60,6 +78,7 @@ public class TreeBag<E extends Comparable> implements Cloneable
    *   the method returns null.
    *   The bag remains unchanged.
    **/
+   // Complete this
    public E retrieve(E target)
    {
       // Student will replace this return statement with their own code:
@@ -76,6 +95,7 @@ public class TreeBag<E extends Comparable> implements Cloneable
    *   <CODE>target</CODE> has been removed and the method returns true. 
    *   Otherwise the bag remains unchanged and the method returns false. 
    **/
+   // Complete this
    public boolean remove(E target)
    {
       // Student will replace this return statement with their own code:
@@ -92,6 +112,7 @@ public class TreeBag<E extends Comparable> implements Cloneable
    *   Outputs all elements in the tree to Screen.
    *   Does not change the structure 
    **/
+   // Complete this
    public void display()
    {
       // Student will replace this with their own code:
