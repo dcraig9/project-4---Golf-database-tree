@@ -16,3 +16,8 @@ Some Questions about the project:
 
 3. DisplayAsTree relies on BTNode print.  So the toString() for Golfer Data is needed.
 	"data" is printed = golfer object info - should we do it as One line? Or multiple lines of info?
+
+
+=============
+Nice idea!
+=============
