@@ -8,7 +8,7 @@
 ********************************************************************************************/
 
 
-class Golfer implements Comparable<Object>
+class Golfer implements Comparable<Golfer>
 {
 
 
@@ -128,6 +128,7 @@ class Golfer implements Comparable<Object>
    {
       handicap = num;
    }
+   
    /**
    * Accessor method    
    * @param - none
@@ -138,6 +139,7 @@ class Golfer implements Comparable<Object>
    {
       return handicap;
    }
+   
    /**
    *     
    * @param 
@@ -146,18 +148,24 @@ class Golfer implements Comparable<Object>
    **/  
    public void addNewScore(int newScore)
    {
-   
+      double newAvg=((numberOfRounds*averageScore)+newScore)/(numberOfRounds+1);
+      numberOfRounds++;
+      averageScore=newAvg;
    }
+   
    /**
    * Compareto method    
    * @param - 
    * @return
    *   
    **/     
-   public int compareTo (Object obj)
+   public int compareTo (Golfer obj)
    {
+      int answer;
+      
+      answer = lastName.compareTo(obj.getName());
    
-      return 0;
+      return answer;
    }
    
    /**
@@ -166,22 +174,13 @@ class Golfer implements Comparable<Object>
    * @return
    *   
    **/     
-   public String toString(Object obj)
+   public String toString()
    {
-      String output = "";
+      
+      String output = lastName + "     \t" + numberOfRounds + "\t\t\t" + handicap + "\t\t" + averageScore;;
       
       return output;
    }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    
    
 
