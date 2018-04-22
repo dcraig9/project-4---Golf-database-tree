@@ -43,27 +43,9 @@ public class TreeBag<E extends Comparable> implements Cloneable
    * @exception OutOfMemoryError
    *   Indicates insufficient memory a new BTNode.
    **/
-   // Complete this
    public void add(E element)
    {      
-      
-      try{
-      
-         if ( root.data == null )
-            root = element;
-      
-         else {
-            if ( root.compare(element) > 0 || root.compare(element) == 0 )
-               setRight(element);
-            else if ( root.compare(element) < 0 )   
-               setLeft(element);
-            
-         }      
-      } 
-      catch (OutOfMemoryError E){
-         System.out.println("System is Out of Memory, Exiting...");
-      }       
-      
+      // Implemented by student.
    }
 
    /**
@@ -78,11 +60,34 @@ public class TreeBag<E extends Comparable> implements Cloneable
    *   the method returns null.
    *   The bag remains unchanged.
    **/
-   // Complete this
    public E retrieve(E target)
    {
-      // Student will replace this return statement with their own code:
-      return target;
+      if (root != null)
+      {
+         boolean found= false;
+         BTNode<E> cursor = root;
+         while (!found && cursor!=null)
+         {
+            if (target.compareTo(cursor.getData()) < 0)
+            {
+				   cursor = cursor.getLeft();
+            }
+            else if (target.compareTo(cursor.getData()) > 0)
+            {
+               cursor = cursor.getRight();
+            }
+            else if (target.compareTo(cursor.getData()) == 0)
+            {
+               found = true;
+               return cursor.getData();
+            }
+         }
+         return null;
+      }
+      else
+      {  
+      return null;
+      }
    }
 
    
@@ -95,7 +100,6 @@ public class TreeBag<E extends Comparable> implements Cloneable
    *   <CODE>target</CODE> has been removed and the method returns true. 
    *   Otherwise the bag remains unchanged and the method returns false. 
    **/
-   // Complete this
    public boolean remove(E target)
    {
       // Student will replace this return statement with their own code:
@@ -112,11 +116,16 @@ public class TreeBag<E extends Comparable> implements Cloneable
    *   Outputs all elements in the tree to Screen.
    *   Does not change the structure 
    **/
-   // Complete this
    public void display()
    {
-      // Student will replace this with their own code:
-      
+      if (root == null)
+      {
+			System.out.println("There are no elements to display.");
+		} 
+      else
+      {
+         root.inorderPrint();
+      }     
    } 
      
    /**
@@ -133,9 +142,19 @@ public class TreeBag<E extends Comparable> implements Cloneable
    public void displayAsTree() {
       root.print(0);
    }
-      
-   
-   
+             
+   /**
+   * Count the number of elements in this bag.
+   * @param - none
+   * @return
+   *   the number of elements in this bag
+   **/                           
+   public int size( )
+   {
+      return BTNode.treeSize(root);
+   }
+
+   //========================================= beyond this line not implemented in this project
    /**
    * Generate a copy of this bag.
    * @param - none
@@ -148,38 +167,9 @@ public class TreeBag<E extends Comparable> implements Cloneable
    **/ 
    public TreeBag<E> clone( )
    {  // Clone an IntTreeBag object.
-      // Student will replace this return statement with their own code:
+      // Not implemented for this project
       return null; 
    } 
-
-   /**
-   * Accessor method to count the number of occurrences of a particular element
-   * in this bag.
-   * @param <CODE>target</CODE>
-   *   the element that needs to be counted
-   * @return
-   *   the number of times that <CODE>target</CODE> occurs in this bag
-   **/
-   public int countOccurrences(E target)
-   {
-      // Student will replace this return statement with their own code:
-      return 0;
-   }
-   
-       
-   /**
-   * Determine the number of elements in this bag.
-   * @param - none
-   * @return
-   *   the number of elements in this bag
-   **/                           
-   public int size( )
-   {
-      return BTNode.treeSize(root);
-   }
-
-
-
 
    /**
    * Add the contents of another bag to this bag.
@@ -196,7 +186,7 @@ public class TreeBag<E extends Comparable> implements Cloneable
    **/
    public void addAll(TreeBag<E> addend)
    {
-      // Implemented by student.
+      // Not implemented for this project
    }
    
    /**
@@ -216,9 +206,23 @@ public class TreeBag<E extends Comparable> implements Cloneable
    **/   
    public static TreeBag union(TreeBag b1, TreeBag b2)
    {
-      // Student will replace this return statement with their own code:
+      // Not implemented for this project
       return null;
    }
+   
+   /**
+   * Accessor method to count the number of occurrences of a particular element
+   * in this bag.
+   * @param <CODE>target</CODE>
+   *   the element that needs to be counted
+   * @return
+   *   the number of times that <CODE>target</CODE> occurs in this bag
+   **/
+   public int countOccurrences(E target)
+   {
+      // Not implemented for this project
+      return 0;
+   }
       
-}
+} 
            

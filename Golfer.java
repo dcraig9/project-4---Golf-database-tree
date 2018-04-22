@@ -18,7 +18,7 @@ class Golfer implements Comparable<Golfer>
    private int handicap;
 
    /**
-   * Initialize a 
+   * Initialize a Golfer with empty name and stats
    * @param 
    * 
    **/
@@ -46,6 +46,20 @@ class Golfer implements Comparable<Golfer>
       numberOfRounds = rounds;
       averageScore = avg;
       handicap = cap;  
+   }
+
+   /**
+   * Initialize a Golfer with only a last name. All stats set to zero.
+   * Used for compareTo operations where a target is required.
+   * @param 
+   * 
+   **/   
+   public Golfer(String name)
+   {
+      lastName = name;
+      numberOfRounds = 0;
+      averageScore = 0;
+      handicap = 0;
    }
    
    /**
