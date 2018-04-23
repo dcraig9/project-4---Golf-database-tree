@@ -47,14 +47,14 @@ public class TreeBag<E extends Comparable> implements Cloneable
    {      
       try{
          boolean notdone = true;
-         Golfer cursor = new Golfer();
+         BTNode<E> cursor = new BTNode(root, null, null);
+                             
+         if ( root == null ) {
             
-         if ( root == null )
-            root = element;
-            cursor = root;
-      
+            cursor = element;
+         }         
          else {
-            
+            cursor = root;
             while (notdone){
                
                if (cursor == null)
