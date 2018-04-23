@@ -21,3 +21,5 @@ Some Questions about the project:
 =============
 Nice idea!
 =============
+ 4.  Not really a question, but I figured out  basics of how to do TreeBag add.  Will do it in next 24 hours. 9PM Sunday 4/22 - Joe
+     didn't upload previous work on it yet.
