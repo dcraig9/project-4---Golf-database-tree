@@ -46,17 +46,36 @@ public class TreeBag<E extends Comparable> implements Cloneable
    public void add(E element)
    {      
       try{
-      
-         if ( root.data == null )
+         boolean notdone = true;
+         Golfer cursor = new Golfer();
+            
+         if ( root == null )
             root = element;
+            cursor = root;
       
          else {
-            if ( root.compare(element) > 0 || root.compare(element) == 0 )
-               setRight(element);
-            else if ( root.compare(element) < 0 )   
-               setLeft(element);
             
-         }      
+            while (notdone){
+               
+               if (cursor == null)
+               {
+                  notdone = false;   
+               }
+               else if (cursor.compareTo(element) <= 0)
+               {
+                  cursor = cursor.getLeft();
+                  notdone = true; 
+               }
+               else if (cursor.compareTo(element) > 0)
+               {
+                  cursor = cursor.getRight();
+                  notdone = true;
+               }  
+            }//end while     
+               
+               cursor = element;
+            
+         }//end else      
       } 
       catch (OutOfMemoryError E){
          System.out.println("System is Out of Memory, Exiting...");
