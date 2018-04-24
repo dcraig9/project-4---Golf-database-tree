@@ -1,3 +1,4 @@
+
 Some Questions about the project:
 
 1.  Is the first BTNode - root -  filled with the first Player in the golferinfo.txt file?
@@ -23,3 +24,11 @@ Nice idea!
 =============
  4.  Not really a question, but I figured out  basics of how to do TreeBag add.  Will do it in next 24 hours. 9PM Sunday 4/22 - Joe
      didn't upload previous work on it yet.
+
+
+5. Added some stuff to GolferScoresTree. Noticed some compile errors coming from TreeBag
+	TreeBag.java:54: error: incompatible types: E cannot be converted to BTNode<E>
+            cursor = element;
+                     ^
+   Didn't attempt to do anything there since I figured you were more up on that routine that I was at this point. 
+   10:50PM Monday 4/23 - Don
