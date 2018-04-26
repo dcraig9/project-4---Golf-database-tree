@@ -38,3 +38,5 @@ Changed TreeBag.java and put it in a Pull Request -
 Click on Pull Requests tab, click project labeled "TreeBag.java use of BTNode", 
 click Files Changed tab to see the changes.   
 After a brief review - can merge them somehow.  Haven't pressed that button yet :) - 4/25 Joe 
+
+7. I'll start working on TreeBag.remove this evening - 4/25 - Joe
