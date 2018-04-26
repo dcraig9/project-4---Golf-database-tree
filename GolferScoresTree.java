@@ -46,7 +46,7 @@ class GolferScoresTree {
          Golfer one = new Golfer(lastName, numRounds, average, handicap);
       
          // add this to tree bag, and clear it and repeat until all golfers are in tree.
-         
+         golferTree.add(one);
       }
       read.close();  //close file stream after done reading   - DC
          
