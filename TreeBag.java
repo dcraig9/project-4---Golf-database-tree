@@ -144,7 +144,31 @@ public class TreeBag<E extends Comparable> implements Cloneable
       //parent is supposed to stay one behind cursor - how to do this while using retrieve?
       // does retrieve have to be redone?  retrieve seems to be for data only, doesn't return whole
       // BTNode.
-      parentOfCursor = cursor;
+      
+      //following code from retrieve positions cursor at match 
+      // needs a null situation where match is not found
+     
+         boolean found= false;
+         
+         while (!found && cursor!=null)
+         {
+            if (target.compareTo(cursor.getData()) < 0)
+            {
+				   parentOfCursor = cursor;
+               cursor = cursor.getLeft();
+            }
+            else if (target.compareTo(cursor.getData()) > 0)
+            {
+               parentOfCursor = cursor;
+               cursor = cursor.getRight();
+            }
+            else if (target.compareTo(cursor.getData()) == 0)
+            {
+               found = true;
+            }
+         }
+
+      
       //cursor = cursor.retrieve(target);
             
       //case 1 cursor is null
@@ -175,7 +199,7 @@ public class TreeBag<E extends Comparable> implements Cloneable
       }
                         
       //case 4 cursor non-null, and has a left child
-      if (cursor.getLeft != null && cursor != null){
+      if (cursor.getLeft != null){
       
          cursor.setData( cursor.getLeft().getRightmostData() );
          
