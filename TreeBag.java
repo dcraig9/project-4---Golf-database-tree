@@ -48,11 +48,10 @@ public class TreeBag<E extends Comparable> implements Cloneable
       try{
          boolean notdone = true;
          BTNode<E> cursor = new BTNode(root, null, null);
-         BTNode<E> passIn = new BTNode(element, null, null);
-                             
+         
          if ( root == null ) {
             
-            cursor = passIn;
+            cursor.setData(element);
          }         
          else {
             cursor = root;
@@ -62,19 +61,19 @@ public class TreeBag<E extends Comparable> implements Cloneable
                {
                   notdone = false;   
                }
-               else if (cursor.compareTo(passIn) <= 0)
+               else if (element.compareTo(cursor.getData()) <= 0)
                {
                   cursor = cursor.getLeft();
                   notdone = true; 
                }
-               else if (cursor.compareTo(passIn) > 0)
+               else if (element.compareTo(cursor.getData()) > 0)
                {
                   cursor = cursor.getRight();
                   notdone = true;
                }  
             }//end while     
                
-               cursor = passIn;
+               cursor.setData(element);
             
          }//end else      
       } 
@@ -152,15 +151,43 @@ public class TreeBag<E extends Comparable> implements Cloneable
       if ( cursor == null){
          return false;
       }   
+
       //case 2 cursor is at root of tree, no left child
-      if ( cursor == root )
+      if ( cursor == root && cursor.getLeft() == null){
       
+         root = root.getRight();
+         return true;
+      }   
+       
       //case 3 cursor is farther down tree, no left child
-      
+      if ( cursor.getLeft() == null){
+         
+         if (cursor == parentOfCursor.getLeft()){
+            
+            parentOfCursor.setLeft( cursor.getRight() );
+         }
+         else {
+            
+            parentOfCursor.setRight( cursor.getRight() );
+         }
+         
+         return true;
+      }
+                        
       //case 4 cursor non-null, and has a left child
+      if (cursor.getLeft != null && cursor != null){
       
-      return false;
-	
+         cursor.setData( cursor.getLeft().getRightmostData() );
+         
+         //remove extra rightmost copy
+         
+         cursor.setLeft( cursor.getLeft().removeRightmost() );
+         
+         return true;
+     ]    
+      
+      
+            return false;
    }
    
    /**
