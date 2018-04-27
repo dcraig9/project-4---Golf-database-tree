@@ -139,7 +139,28 @@ public class TreeBag<E extends Comparable> implements Cloneable
    public boolean remove(E target)
    {
       // Student will replace this return statement with their own code:
+      BTNode<E> cursor = root;
+      BTNode<E> parentOfCursor = null;
+      
+      //parent is supposed to stay one behind cursor - how to do this while using retrieve?
+      // does retrieve have to be redone?  retrieve seems to be for data only, doesn't return whole
+      // BTNode.
+      parentOfCursor = cursor;
+      //cursor = cursor.retrieve(target);
+            
+      //case 1 cursor is null
+      if ( cursor == null){
+         return false;
+      }   
+      //case 2 cursor is at root of tree, no left child
+      if ( cursor == root )
+      
+      //case 3 cursor is farther down tree, no left child
+      
+      //case 4 cursor non-null, and has a left child
+      
       return false;
+	
    }
    
    /**
