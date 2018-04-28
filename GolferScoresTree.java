@@ -22,7 +22,7 @@ class GolferScoresTree {
       double average = 0.0;
       boolean done=false;
       
-      TreeBag<Golfer> golferTree;  //treebag to hold all of the golfers
+      TreeBag<Golfer> golferTree = new TreeBag();  //treebag to hold all of the golfers
       
       
       File text = new File ("golferinfo.txt");
@@ -35,6 +35,7 @@ class GolferScoresTree {
 
       Scanner read = new Scanner(text);
       
+      int counter=0;
       // read in data, assign it to a golfer object, place object in tree?
       while(read.hasNext())
       {
@@ -44,9 +45,13 @@ class GolferScoresTree {
          average = read.nextDouble();
          
          Golfer one = new Golfer(lastName, numRounds, average, handicap);
-      
-         // add this to tree bag, and clear it and repeat until all golfers are in tree.
+         
          golferTree.add(one);
+         counter++;
+         System.out.println("Added golfer #" + counter + " from data file");  // ===========================test print for tracking adds.
+                                                                              // =========================== remove before submitting project
+         // add this to tree bag, and clear it and repeat until all golfers are in tree.
+         
       }
       read.close();  //close file stream after done reading   - DC
          
@@ -56,6 +61,7 @@ class GolferScoresTree {
       
       while (!done)
       {
+         System.out.println();
          System.out.println(" 1. Display listing to screen of all golfers stats(ordered by lastname)");
          System.out.println(" 2. Display the golfers in current tree format(Use displayAsTree )");
          System.out.println(" 3. Find and display one individual golfers stats");
@@ -68,11 +74,10 @@ class GolferScoresTree {
                
          switch(menu)
          {
-            case 1:  //stuff
-                     // if (golfTree.size()>0)
-                     //    print routine
-                     // else
-                     //    print that list is empty
+            case 1:  //if (golferTree.size()>0)
+                        golferTree.display();
+                     //else
+                     //   System.out.println("There are currently no golfers to display.");
                      break;
             case 2:  //
                      break;
@@ -86,6 +91,7 @@ class GolferScoresTree {
                      Golfer newGolfer = new Golfer();
                      newGolfer = addNewGolfer(newGolfer);
                      //send newGolfer to be added to TreeBag
+                     golferTree.add(newGolfer);
                      break;
             case 7:  //stuff
                      //call routine to write all golfer info to txt file
@@ -185,6 +191,8 @@ class GolferScoresTree {
       int handicap = 0;
       double average = 0.0;
       System.out.println();
+      System.out.println("Enter information for the new player.");
+      System.out.println("=====================================");
       System.out.print("Last name of new golfer : ");
       name = scan.next();
       System.out.println();
@@ -201,7 +209,7 @@ class GolferScoresTree {
       newGolfer.setAverage(average);
       newGolfer.setHandicap(handicap);
       return newGolfer;
-   }
+   }//end addNewGolfer
    
    
    

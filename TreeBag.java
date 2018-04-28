@@ -47,33 +47,48 @@ public class TreeBag<E extends Comparable> implements Cloneable
    {      
       try{
          boolean notdone = true;
-         BTNode<E> cursor = new BTNode(root, null, null);
+         //BTNode<E> cursor = new BTNode(root, null, null);
+         BTNode<E> node = new BTNode<E>(element, null, null);
          
-         if ( root == null ) {
-            
-            cursor.setData(element);
+         if ( root == null ) 
+         {
+            root = node;
+            //cursor.setData(element);
          }         
-         else {
-            cursor = root;
-            while (notdone){
+         else 
+         {
+            //cursor = root;
+            BTNode<E> cursor = root;
+            while (cursor!=null)
+            {
                
-               if (cursor == null)
+               if(cursor.getData().compareTo(element) > 0)              
                {
-                  notdone = false;   
+                  if(cursor.getLeft() == null)
+                  {
+                     cursor.setLeft(node);;
+                     cursor = null;
+                  }
+                  else
+                  {
+                     cursor = cursor.getLeft();
+                  } 
                }
-               else if (element.compareTo(cursor.getData()) <= 0)
+               else if(cursor.getData().compareTo(element) < 0)
                {
-                  cursor = cursor.getLeft();
-                  notdone = true; 
-               }
-               else if (element.compareTo(cursor.getData()) > 0)
-               {
-                  cursor = cursor.getRight();
-                  notdone = true;
+                  if(cursor.getRight() == null)
+                  {
+                     cursor.setRight(node);
+                     cursor = null;
+                  }
+                  else
+                  {
+                     cursor = cursor.getRight();
+                  }
                }  
             }//end while     
                
-               cursor.setData(element);
+               //cursor.setData(element);
             
          }//end else      
       } 
@@ -199,7 +214,7 @@ public class TreeBag<E extends Comparable> implements Cloneable
       }
                         
       //case 4 cursor non-null, and has a left child
-      if (cursor.getLeft != null){
+      if (cursor.getLeft() != null){
       
          cursor.setData( cursor.getLeft().getRightmostData() );
          
@@ -208,7 +223,7 @@ public class TreeBag<E extends Comparable> implements Cloneable
          cursor.setLeft( cursor.getLeft().removeRightmost() );
          
          return true;
-     ]    
+      }    
       
       
             return false;
