@@ -76,7 +76,11 @@ class GolferScoresTree {
          switch(menu)
          {
             case 1:  if (golferTree.size()>0)
+                     {
+                        System.out.println("Name         Rounds  Handicap  Average");
+                        System.out.println("======================================");
                         golferTree.display();
+                     }
                      else
                         System.out.println("There are currently no golfers to display.");
                      break;
@@ -196,7 +200,9 @@ class GolferScoresTree {
       dGolfer = (Golfer)golferTree.retrieve(new Golfer(name));
 		if (dGolfer != null)
       {
-			System.out.println("\nLast Name     \tNumber Of Rounds\tHandicap\tAverage Score");
+         System.out.println();
+			System.out.println("Name         Rounds  Handicap  Average");
+         System.out.println("======================================");
          System.out.println(dGolfer.toString());
 		}
       else 
