@@ -84,7 +84,7 @@ class GolferScoresTree {
                      else
                         System.out.println("There are currently no golfers to display.");
                      break;
-            case 2:  //
+            case 2:  golferTree.displayAsTree();
                      break;
             case 3:  displayGolfer(golferTree);
                      break;
@@ -96,8 +96,7 @@ class GolferScoresTree {
                      newGolfer = addNewGolfer(newGolfer);
                      golferTree.add(newGolfer);
                      break;
-            case 7:  //stuff
-                     //call routine to write all golfer info to txt file
+            case 7:  saveToFile(golferTree);
                      done=true;
                      break; 
          }//end switch 
@@ -289,6 +288,26 @@ class GolferScoresTree {
    
    
    }//end removeGolfer
+   
+   public static void saveToFile(TreeBag golferTree)  // save a new file with golf statistics in it
+   {                 
+         File output = new File("scramble.txt");
+      
+         if (output.exists()) {
+                System.out.println("File exists already - we can read it");
+         }else {
+                output.createNewFile();   
+         }
+
+         FileOutputStream outward = new FileOutputStream(output);
+         PrintWriter outagain = new PrintWriter(outward);
+      
+         outagain.golferTree.display();  
+      
+         outagain.close();
+         
+   }// end saveToFile      
+
    
    
 }
