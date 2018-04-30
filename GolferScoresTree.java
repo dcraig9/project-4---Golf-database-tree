@@ -90,7 +90,7 @@ class GolferScoresTree {
                      break;
             case 4:  updateGolfer(golferTree);
                      break;
-            case 5:  //add routine for removing Golfer
+            case 5:  removeGolfer(golferTree);
                      break;
             case 6:  Golfer newGolfer = new Golfer();
                      newGolfer = addNewGolfer(newGolfer);
@@ -265,7 +265,30 @@ class GolferScoresTree {
       return newGolfer;
    }//end addNewGolfer
    
+   public static void removeGolfer(TreeBag golferTree) //remove found Golfer entry from tree
+   {
+      boolean removed = false;
+      Golfer dGolfer;
+      Scanner scan = new Scanner(System.in);
+      String name;
+      System.out.print("Last name of golfer to remove : ");
+      name = scan.next();
+      dGolfer = (Golfer)golferTree.retrieve(new Golfer(name));
+		if (dGolfer != null) //retrieve works
+      {
+         removed = golferTree.remove(new Golfer(name));
+         if ( removed )
+         {
+            System.out.print("\nGolfer " + name + " found and removed. ");
+         }                         
+		}
+      else 
+      {
+         System.out.println("\nNo golfer with the name " + name + " could be found!");
+      }
    
+   
+   }//end removeGolfer
    
    
 }
