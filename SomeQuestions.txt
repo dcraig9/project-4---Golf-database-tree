@@ -1,6 +1,7 @@
 
 
 
+
 Some Questions about the project:
 
 1.  Is the first BTNode - root -  filled with the first Player in the golferinfo.txt file?
@@ -51,3 +52,4 @@ After a brief review - can merge them somehow.  Haven't pressed that button yet 
    to play with it.
 9. 4/30 - DC
    Can now retrieve and view individual golfer and also update individual golfer score/average
+   Updated toString method in Golfer.java for better formatting
