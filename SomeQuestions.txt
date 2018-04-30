@@ -1,5 +1,6 @@
 
 
+
 Some Questions about the project:
 
 1.  Is the first BTNode - root -  filled with the first Player in the golferinfo.txt file?
@@ -48,4 +49,5 @@ After a brief review - can merge them somehow.  Haven't pressed that button yet 
    Left in a few debugging print lines for tracking stuff as it gets added from the txt file, will go through before turning in 
    and clean things up. Didn't get to look at/test the rmove section yet. All compiles and runs as of my latest uploads if you want
    to play with it.
-   
+9. 4/30 - DC
+   Can now retrieve and view individual golfer and also update individual golfer score/average
