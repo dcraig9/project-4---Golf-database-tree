@@ -53,3 +53,6 @@ After a brief review - can merge them somehow.  Haven't pressed that button yet 
 9. 4/30 - DC
    Can now retrieve and view individual golfer and also update individual golfer score/average
    Updated toString method in Golfer.java for better formatting
+   
+10.  Remove golfer works. - JE 4/30
+
