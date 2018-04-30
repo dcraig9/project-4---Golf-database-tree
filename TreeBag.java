@@ -110,6 +110,7 @@ public class TreeBag<E extends Comparable> implements Cloneable
    *   the method returns null.
    *   The bag remains unchanged.
    **/
+   @SuppressWarnings("unchecked")
    public E retrieve(E target)
    {
       if (root != null)

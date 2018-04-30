@@ -21,6 +21,7 @@ class GolferScoresTree {
       int handicap = 0;
       double average = 0.0;
       boolean done=false;
+      Golfer dGolfer;
       
       TreeBag<Golfer> golferTree = new TreeBag();  //treebag to hold all of the golfers
       
@@ -74,23 +75,21 @@ class GolferScoresTree {
                
          switch(menu)
          {
-            case 1:  //if (golferTree.size()>0)
+            case 1:  if (golferTree.size()>0)
                         golferTree.display();
-                     //else
-                     //   System.out.println("There are currently no golfers to display.");
+                     else
+                        System.out.println("There are currently no golfers to display.");
                      break;
             case 2:  //
                      break;
-            case 3:  //add routine to retrieve golfer and print his stats
+            case 3:  displayGolfer(golferTree);
                      break;
-            case 4:  //add routine to update stats
+            case 4:  updateGolfer(golferTree);
                      break;
             case 5:  //add routine for removing Golfer
                      break;
-            case 6:  //Add new golfer routine
-                     Golfer newGolfer = new Golfer();
+            case 6:  Golfer newGolfer = new Golfer();
                      newGolfer = addNewGolfer(newGolfer);
-                     //send newGolfer to be added to TreeBag
                      golferTree.add(newGolfer);
                      break;
             case 7:  //stuff
@@ -182,6 +181,55 @@ class GolferScoresTree {
       }
       return input; 
    }//end getDbl
+   
+   public static void displayGolfer(TreeBag golferTree)     //========== method to find an individual golfer and display his stats
+   {
+      //get desired name to look for
+      //retrieve from treebag (if it exists)
+      //print Golfer and stats to screen is retrieve worked
+      //otherwise let user know golfer wasn't found
+      Golfer dGolfer;
+      Scanner scan = new Scanner(System.in);
+      String name;
+      System.out.print("Last name of golfer to retrieve : ");
+      name = scan.next();
+      dGolfer = (Golfer)golferTree.retrieve(new Golfer(name));
+		if (dGolfer != null)
+      {
+			System.out.println("\nLast Name     \tNumber Of Rounds\tHandicap\tAverage Score");
+         System.out.println(dGolfer.toString());
+		}
+      else 
+      {
+         System.out.println("\nNo golfer with the name " + name + " could be found!");
+      }
+   
+   }//end displayGolfer
+   
+   public static void updateGolfer(TreeBag golferTree) //update # of rounds and average score for target golfer
+   {
+      int newScore=0;
+      Golfer dGolfer;
+      Scanner scan = new Scanner(System.in);
+      String name;
+      System.out.print("Last name of golfer to update : ");
+      name = scan.next();
+      dGolfer = (Golfer)golferTree.retrieve(new Golfer(name));
+		if (dGolfer != null)
+      {
+			System.out.print("\nEnter new score to add for this player : ");
+         newScore=getInt();
+         dGolfer.addNewScore(newScore);
+         System.out.print("\nPlayer updated.");
+		}
+      else 
+      {
+         System.out.println("\nNo golfer with the name " + name + " could be found!");
+      }
+   
+   
+   }//end updateGolfer
+   
    
    public static Golfer addNewGolfer(Golfer newGolfer)
    {
