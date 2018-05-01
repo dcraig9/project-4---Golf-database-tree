@@ -63,6 +63,8 @@ class GolferScoresTree {
       while (!done)
       {
          System.out.println();
+         System.out.println("Menu");
+         System.out.println("====");
          System.out.println(" 1. Display listing to screen of all golfers stats(ordered by lastname)");
          System.out.println(" 2. Display the golfers in current tree format(Use displayAsTree )");
          System.out.println(" 3. Find and display one individual golfers stats");
@@ -70,6 +72,7 @@ class GolferScoresTree {
          System.out.println(" 5. Remove a golfer from the Database");
          System.out.println(" 6. Add a new golfer to the Database");
          System.out.println(" 7. Quit and update datafile");
+         System.out.println(" 8. Exit without updating datafile");
       
          menu=getMenu();
                
@@ -84,9 +87,13 @@ class GolferScoresTree {
                      else
                         System.out.println("There are currently no golfers to display.");
                      break;
-            case 2:  //
+            case 2:  System.out.println();
+                     golferTree.displayAsTree();
+                     System.out.println();
                      break;
-            case 3:  displayGolfer(golferTree);
+            case 3:  System.out.println();
+                     displayGolfer(golferTree);
+                     System.out.println();
                      break;
             case 4:  updateGolfer(golferTree);
                      break;
@@ -96,10 +103,14 @@ class GolferScoresTree {
                      newGolfer = addNewGolfer(newGolfer);
                      golferTree.add(newGolfer);
                      break;
-            case 7:  //stuff
-                     //call routine to write all golfer info to txt file
+            case 7:  System.out.println("Attempting to create file and write data...");
+                     writeToFile(golferTree);
+                     System.out.println("Success! Thanks for using our software and have a great day.");
                      done=true;
                      break; 
+            case 8:  System.out.println("Thanks for using our software and have a great day!");
+                     done=true;
+                     break;
          }//end switch 
       }//end while                            
    
@@ -111,13 +122,13 @@ class GolferScoresTree {
       boolean valid=false;
       while (!valid)
       {
-         System.out.print("Choice (1-7) :");
+         System.out.print("Choice (1-8) :");
          choice=getInt();
          System.out.println();
-         if (choice>=1 && choice<=7)
+         if (choice>=1 && choice<=8)
             valid=true;
          else
-            System.out.println("Choice must be from 1 to 7");
+            System.out.println("Choice must be from 1 to 8");
       }
       return choice;
    }
@@ -290,6 +301,21 @@ class GolferScoresTree {
    
    }//end removeGolfer
    
+   //writes all golfer information to text file
+   public static void writeToFile(TreeBag source)throws FileNotFoundException
+   {  
+      if (source.size() > 0)
+      {
+         PrintStream outFile = new PrintStream(new File("golferinfo.txt"));
+         PrintStream console = System.out;
+         System.setOut(outFile);
+         source.sendToFile();
+         System.setOut(console);
+      }
+      else
+         System.out.println("No golfers loaded in database to print.");
+      
+   }//end writeFile
    
 }
      

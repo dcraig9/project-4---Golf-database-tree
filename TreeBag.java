@@ -251,6 +251,28 @@ public class TreeBag<E extends Comparable> implements Cloneable
          root.inorderPrint();
       }     
    } 
+   
+   /**
+   * Displays the entire tree of Node elements in a order specified
+   * by the elements compareTo method. 
+   * 
+   * @param 
+   *   none
+   * <dt><b>Postcondition:</b><dd>
+   *   Outputs all elements in the tree to Screen.
+   *   Does not change the structure 
+   **/
+   public void sendToFile()
+   {
+      if (root == null)
+      {
+			System.out.println("There are no elements to display.");
+		} 
+      else
+      {
+         root.postorderPrint();
+      }     
+   } 
      
    /**
    * Displays the entire tree of Node elements using the
