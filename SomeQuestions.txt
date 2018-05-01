@@ -2,6 +2,7 @@
 
 
 
+
 Some Questions about the project:
 
 1.  Is the first BTNode - root -  filled with the first Player in the golferinfo.txt file?
@@ -56,3 +57,7 @@ After a brief review - can merge them somehow.  Haven't pressed that button yet 
    
 10.  Remove golfer works. - JE 4/30
 
+11. Writing data to file now in place. Also added menu option for exiting program without updating file. Added small routine in TreeBag
+    to help with order of stuff written to file. Should test a bit more to double check things then all we have to do is clean up
+    and put JavaDoc stuff in.
+    5/1 - DC
