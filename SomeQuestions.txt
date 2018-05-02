@@ -61,3 +61,16 @@ After a brief review - can merge them somehow.  Haven't pressed that button yet 
     to help with order of stuff written to file. Should test a bit more to double check things then all we have to do is clean up
     and put JavaDoc stuff in.
     5/1 - DC
+
+12. Added javadoc comments to Golfer.java
+
+Not sure if this line in TreeBag.retrieve() is an error or not, so I left it in " @SuppressWarnings("unchecked")"
+
+Do any other files need javadoc?
+	5/2 - JE
+
+	
+	
+	
+	
+	
