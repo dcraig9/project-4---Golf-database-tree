@@ -20,7 +20,8 @@ class Golfer implements Comparable<Golfer>
 
    /**
    * Initialize a Golfer with empty name and stats
-   * @param 
+   * @param - none
+   * @postcondition - new Golfer with null values is created.
    * 
    **/
    public Golfer()
@@ -29,17 +30,18 @@ class Golfer implements Comparable<Golfer>
    }
 
    /**
-   * Initialize a Golfer 
-   * @param 
+   * Initialize a Golfer with name, rounds played, average score, and handicap
+   * @param name
+   *     Golfer's last name (String)
    * 
-   * @param 
+   * @param rounds
+   *     Number of rounds played (integer)    
    *    
-   * @param 
+   * @param avg
+   *     Average score for all of the rounds played (double)
    *    
-   * @param 
-   *    
-   * @postcondition 
-   *    
+   * @param cap
+   *     Golfer's Handicap (integer)
    **/
    public Golfer(String name, int rounds, double avg, int cap)
    {
@@ -52,7 +54,8 @@ class Golfer implements Comparable<Golfer>
    /**
    * Initialize a Golfer with only a last name. All stats set to zero.
    * Used for compareTo operations where a target is required.
-   * @param 
+   * @param name
+   *     Last name entered as a String.
    * 
    **/   
    public Golfer(String name)
@@ -61,9 +64,9 @@ class Golfer implements Comparable<Golfer>
    }
    
    /**
-   * Accessor method    
+   * Accessor method getName()   
    * @param - none
-   * @return
+   * @return lastName (String)
    *   
    **/
    public String getName()
@@ -72,11 +75,9 @@ class Golfer implements Comparable<Golfer>
    }
    
    /**
-   * Modification method 
-   * @param - 
-   * @postcondition
-   *   
-   *   
+   * Modification method setName(
+   * @param - name (String)
+   * @postcondition - last name of golfer is changed
    **/   
    public void setName(String name)
    {
@@ -84,9 +85,9 @@ class Golfer implements Comparable<Golfer>
    }
    
    /**
-   * Accessor method    
+   * Accessor method getRounds()  
    * @param - none
-   * @return
+   * @return - integer
    *   
    **/   
    public int getRounds()
@@ -95,11 +96,9 @@ class Golfer implements Comparable<Golfer>
    }
    
    /**
-   * Modification method 
-   * @param - 
-   * @postcondition
-   *   
-   *   
+   * Modification method setRounds( int )
+   * @param - rounds (integer)
+   * @postcondition - number of rounds played is changed
    **/   
    public void setRounds(int rounds)
    {
@@ -107,9 +106,9 @@ class Golfer implements Comparable<Golfer>
    }
    
    /**
-   * Accessor method    
+   * Accessor method getAverage()  
    * @param - none
-   * @return
+   * @return - average score (double) 
    *   
    **/   
    public double getAverage()
@@ -118,10 +117,9 @@ class Golfer implements Comparable<Golfer>
    }
    
    /**
-   * Modification method 
-   * @param - 
-   * @postcondition
-   *   
+   * Modification method setAverage( double)
+   * @param - average (double)
+   * @postcondition - player average is updated
    *   
    **/   
    public void setAverage(double average)
@@ -130,11 +128,10 @@ class Golfer implements Comparable<Golfer>
    }
    
    /**
-   * Modification method 
-   * @param - 
-   * @postcondition
-   *   
-   *   
+   * Modification method setHandicap( int )
+   * @param - num  (integer)
+   * @postcondition - player handicap score is updated
+   *  
    **/   
    public void setHandicap(int num)
    {
@@ -142,9 +139,9 @@ class Golfer implements Comparable<Golfer>
    }
    
    /**
-   * Accessor method    
+   * Accessor method getHandicap
    * @param - none
-   * @return
+   * @return - handicap (integer) of a player is returned
    *   
    **/   
    public int getHandicap()
@@ -153,10 +150,12 @@ class Golfer implements Comparable<Golfer>
    }
    
    /**
-   *     
-   * @param 
-   * 
-   *   
+   * addNewScore updates golfer info based on the results of playing one round of golf    
+   * @param - newScore (integer)
+   * @postcondition - 
+   *     numberOfRounds increases by one
+   *     averageScore is updated by averaging in the newScore, calculating the new averageScore         
+   *
    **/  
    public void addNewScore(int newScore)
    {
@@ -166,10 +165,14 @@ class Golfer implements Comparable<Golfer>
    }
    
    /**
-   * Compareto method    
-   * @param - 
-   * @return
-   *   
+   * Compareto method to compare lastName of Golfer objects   
+   * @param - a Golfer obj
+   * @return - integer -1, 0, or 1 returned
+   *     -1  =  Golfer obj last name is less than this.lastname,
+   *            comes sooner alphabetically
+   *     0   =  Golfer object last name is the same as this.lastname
+   *     1   =  Golfer object last name is greater than this.lastname
+   *            comes after it, alphabetically
    **/     
    public int compareTo (Golfer obj)
    {
@@ -181,9 +184,9 @@ class Golfer implements Comparable<Golfer>
    }
    
    /**
-   *     
-   * @param - 
-   * @return
+   * toString method to present data from a Golfer Object in String format    
+   * @param - none
+   * @return - a String formatted to output lastName, numberOfRounds, handicap, averageScore   
    *   
    **/     
    public String toString()
