@@ -29,15 +29,15 @@ class GolferScoresTree {
       File text = new File ("golferinfo.txt");
       
       if (text.exists()) {
-         System.out.println("File exists already - we can read it");
+         System.out.println("Found Golfer data file - reading information.");
       }else {
          text.createNewFile();   
       }
 
       Scanner read = new Scanner(text);
       
-      int counter=0;
-      // read in data, assign it to a golfer object, place object in tree?
+      
+      // read in data, assign it to a golfer object, place object in tree
       while(read.hasNext())
       {
          lastName = read.next();
@@ -48,16 +48,12 @@ class GolferScoresTree {
          Golfer one = new Golfer(lastName, numRounds, average, handicap);
          
          golferTree.add(one);
-         counter++;
-         System.out.println("Added golfer #" + counter + " from data file");  // ===========================test print for tracking adds.
-                                                                              // =========================== remove before submitting project
-         // add this to tree bag, and clear it and repeat until all golfers are in tree.
-         
+                  
       }
-      read.close();  //close file stream after done reading   - DC
+      read.close();  //close file stream after done reading 
          
    
-      System.out.println(" Thank you for coming to the tournament!  Here are the things you can do with our statistics: ");
+      System.out.println("\nThank you for coming to the tournament!  Here are the things you can do with our statistics: ");
       System.out.println();
       
       while (!done)
@@ -199,10 +195,6 @@ class GolferScoresTree {
    
    public static void displayGolfer(TreeBag golferTree)     //========== method to find an individual golfer and display his stats
    {
-      //get desired name to look for
-      //retrieve from treebag (if it exists)
-      //print Golfer and stats to screen is retrieve worked
-      //otherwise let user know golfer wasn't found
       Golfer dGolfer;
       Scanner scan = new Scanner(System.in);
       String name;
@@ -242,9 +234,7 @@ class GolferScoresTree {
       else 
       {
          System.out.println("\nNo golfer with the name " + name + " could be found!");
-      }
-   
-   
+      }  
    }//end updateGolfer
    
    
@@ -296,9 +286,7 @@ class GolferScoresTree {
       else 
       {
          System.out.println("\nNo golfer with the name " + name + " could be found!");
-      }
-   
-   
+      }  
    }//end removeGolfer
    
    //writes all golfer information to text file
@@ -317,5 +305,4 @@ class GolferScoresTree {
       
    }//end writeFile
    
-}
-     
+}   

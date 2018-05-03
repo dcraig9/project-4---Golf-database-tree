@@ -193,10 +193,6 @@ class Golfer implements Comparable<Golfer>
    {
       StringBuilder sbuf = new StringBuilder();
       Formatter fmt = new Formatter(sbuf);
-      //fmt.format("PI = %f%n", Math.PI);
-      //System.out.print(sbuf.toString());
-      
-      //String output = lastName + "\t\t" + numberOfRounds + "\t\t" + handicap + "\t\t" + averageScore;;
       fmt.format("%-12s",lastName);
       fmt.format("%5d \t",numberOfRounds);
       fmt.format("%5d \t",handicap);
