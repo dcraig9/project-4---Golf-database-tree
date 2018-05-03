@@ -73,5 +73,5 @@ Do any other files need javadoc?
 13. That suppress line can go away I believe, for it to be useful and get rid of the compiler warnings it would have to be put in quite a few more places. The project instruction sheet said we needed javadoc comments in TreeBag.java
 	5/2 - DC
 	
-	
+14. Minor cleanup in GolferScoresTree and Golfer   5/3 - DC	
 	
